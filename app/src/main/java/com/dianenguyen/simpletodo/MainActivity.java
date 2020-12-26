@@ -1,6 +1,7 @@
 package com.dianenguyen.simpletodo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -28,9 +29,13 @@ public class MainActivity extends AppCompatActivity {
         etItem = findViewById(R.id.etItem);
         rvItems = findViewById(R.id.rvItems);
 
-
         items = new ArrayList<>();
         items.add("Buy milk");
         items.add("Buy bread");
+
+        // construct our adaptor
+        ItemsAdapter itemsAdapter = new ItemsAdapter(items);
+        rvItems.setAdapter(itemsAdapter);
+        rvItems.setLayoutManager(new LinearLayoutManager(this));
     }
 }
