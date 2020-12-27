@@ -25,7 +25,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-# User can view list of todo items, add and remove items, and user's list of items are persisted
+### User can view list of todo items, add and remove items, and user's list of items are persisted
 <img src='http://g.recordit.co/PmJd4SoCL5.gif' title='user stories' width='' alt='user stories' />
 
 GIF created with [RecordIt](https://recordit.co/).
