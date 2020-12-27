@@ -11,10 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder>{
-    List<String> items;
+    public interface OnLongClickListener {
+        void onItemLongClicked(int position);
+    }
 
-    public ItemsAdapter(List<String> items) {
+    List<String> items;
+    OnLongClickListener longClickListener;
+
+    public ItemsAdapter(List<String> items, OnLongClickListener longClickListener) {
         this.items = items;
+        this.longClickListener = longClickListener;
     }
 
     @NonNull
@@ -52,6 +58,14 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder>{
         // update view inside viewholder
         public void bind(String item) {
             tvItem.setText(item);
+            tvItem.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    // Notify user the postion where it was long pressed
+                    longClickListener.onItemLongClicked(getAdapterPosition());
+                    return true;
+                }
+            });
         }
     }
 }
